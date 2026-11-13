@@ -1,13 +1,29 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-  //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-  // to see how IntelliJ IDEA suggests fixing it.
-  IO.println(String.format("Hello and welcome!"));
+import java.util.Scanner;
 
-  for (int i = 1; i <= 5; i++) {
-    //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-    // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-    IO.println("i = " + i);
-  }
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("What number do you want to factorial? ");
+        System.out.print("Enter a number between 0 and 170: ");
+        double userNumber = scanner.nextDouble();
+        while (!(userNumber>=0 && userNumber<=170)) {
+            System.out.print ("That is not between 0 and 170, try again:");
+            userNumber = scanner.nextInt();
+        }
+        double count = userNumber;
+        double permanent = userNumber;
+        if (userNumber==0) {
+            System.out.println (1);
+            count = -2;
+        }
+        int fi = 1;
+        while (count >= 1 && fi<permanent) {
+            userNumber = userNumber * (permanent-fi);
+            count--;
+            fi++;
+        }
+        if (permanent != 0){
+            System.out.println (userNumber);
+        }
+    }
 }
